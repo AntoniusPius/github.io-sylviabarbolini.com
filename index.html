@@ -3,17 +3,52 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sylvia Barbolini – Offizielle Website</title>
-  <meta name="description" content="Offizielle Website – Malerei, Mischtechnik, Skulpturen und Lebenslauf" />
+  <title>Künstler:IN – Offizielle Website</title>
+  <meta name="description" content="Offizielle Website – Malerei, Mischtechnik, Skulpturen und Vita" />
   <meta name="robots" content="index,follow" />
-  <link rel="preload" as="image" href="assets/Karrner - Sylvia Barbolini.jpg" />
-  <meta property="og:title" content="Sylvia Barbolini – Offizielle Website" />
-  <meta property="og:description" content="Malerei, Mischtechnik, Skultpuren und Lebenslauf." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://example.com/assets/og.jpg" />
   <meta name="theme-color" content="#0b1020" />
+  <link rel="preload" as="image" href="assets/hero.jpg" />
   <style>
-    /* Styles wie zuvor */
+    /* ===== Design-System */
+    :root{--bg:#0a0d17;--panel:#0f1323;--soft:#141a33;--text:#e8eaf2;--muted:#a5acc2;--brand:#9ad7ff;--accent:#ffd68a;--radius:20px;--space:clamp(12px,1.5vw,18px)}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,#172042,transparent),var(--bg);color:var(--text);font:16px/1.6 ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;scroll-behavior:smooth}
+    a{color:#8ec8ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+    /* ===== Header / Nav */
+    header{position:sticky;top:0;z-index:40;background:rgba(10,13,23,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
+    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--accent))}
+    .links{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:.55rem .9rem;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#0b0f1c;font-weight:800;border:0}
+    /* ===== Hero */
+    .hero{padding:64px 0 24px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+    @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+    .hero h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:.3rem 0}
+    .tag{display:inline-block;padding:.2rem .55rem;border:1px solid rgba(255,255,255,.14);border-radius:999px;font-size:.8rem;color:var(--muted)}
+    .hero figure{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,var(--soft),#0b1020)}
+    /* ===== Sections */
+    section{padding:36px 0}
+    h2{font-size:1.7rem;margin:0 0 14px}
+    .lede{color:var(--muted);max-width:70ch}
+    /* ===== Grid / Cards */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 12;background:linear-gradient(180deg,var(--panel),#0b0f1e);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:var(--space);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    @media(min-width:720px){.span-6{grid-column:span 6}.span-4{grid-column:span 4}}
+    .thumb{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .thumb figcaption{position:absolute;left:0;bottom:0;right:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.6));padding:10px 12px;font-weight:600}
+    /* ===== Footer */
+    footer{border-top:1px solid rgba(255,255,255,.08);margin-top:24px;padding:28px 0;color:var(--muted);font-size:.95rem}
+    /* ===== Lightbox */
+    dialog.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;border:0;padding:16px}
+    dialog.lightbox[open]{display:flex;align-items:center;justify-content:center}
+    .lb-img{max-width:92vw;max-height:90vh;border-radius:12px}
+    .lb-ui{position:fixed;left:0;right:0;bottom:16px;display:flex;gap:10px;justify-content:center}
+    .lb-btn{background:#fff;color:#000;border:0;border-radius:999px;padding:.5rem .9rem;font-weight:700}
   </style>
 </head>
 <body>
@@ -31,15 +66,157 @@
   </header>
 
   <main class="container" id="content">
-    <!-- Inhalt der Seite bleibt bestehen, Sektionen können noch angepasst werden -->
+    <!-- ===== HERO -->
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div>
+          <span class="tag">Offizielle Website</span>
+          <h1 id="artistName">Künstler:IN</h1>
+          <p class="lede">Kurztext (3–4 Zeilen) über Person, Medium, Themen, Technik. Beispiel: Bedeutende Künstlerpersönlichkeit – Malerei, Mischtechnik und Skulpturen im Dialog von Material und Erinnerung.</p>
+        </div>
+        <figure>
+          <img src="assets/hero.jpg" alt="Leitmotiv oder Porträt" loading="eager" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== 1) MALEREI -->
+    <section id="malerei">
+      <h2>Malerei</h2>
+      <p class="lede">Ausgewählte Werke aus den Malerei‑Serien. Klicken öffnet die Bildansicht.</p>
+      <div class="grid">
+        <article class="card span-6">
+          <figure class="thumb">
+            <img src="assets/malerei/arbeit-01.jpg" alt="Malerei – Arbeit 01" loading="lazy" data-lb="assets/malerei/arbeit-01.jpg" />
+            <figcaption>„Titel der Arbeit 01“, Jahr, Acryl auf Leinwand, 100×140 cm</figcaption>
+          </figure>
+          <p>Kurztext zur Serie oder Arbeit.</p>
+        </article>
+        <article class="card span-6">
+          <figure class="thumb">
+            <img src="assets/malerei/arbeit-02.jpg" alt="Malerei – Arbeit 02" loading="lazy" data-lb="assets/malerei/arbeit-02.jpg" />
+            <figcaption>„Titel der Arbeit 02“, Jahr, Öl auf Leinwand, 80×120 cm</figcaption>
+          </figure>
+          <p>Kurztext zur Serie oder Arbeit.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 2) MISCHTECHNIK -->
+    <section id="mischtechnik">
+      <h2>Mischtechnik</h2>
+      <p class="lede">Serien mit experimentellen Techniken und Materialüberlagerungen.</p>
+      <div class="grid">
+        <article class="card span-4">
+          <figure class="thumb">
+            <img src="assets/mischtechnik/arbeit-01.jpg" alt="Mischtechnik – Arbeit 01" loading="lazy" data-lb="assets/mischtechnik/arbeit-01.jpg" />
+            <figcaption>Papier, Pigment, Collage</figcaption>
+          </figure>
+        </article>
+        <article class="card span-4">
+          <figure class="thumb">
+            <img src="assets/mischtechnik/arbeit-02.jpg" alt="Mischtechnik – Arbeit 02" loading="lazy" data-lb="assets/mischtechnik/arbeit-02.jpg" />
+            <figcaption>Mixed Media auf Holz</figcaption>
+          </figure>
+        </article>
+        <article class="card span-4">
+          <figure class="thumb">
+            <img src="assets/mischtechnik/arbeit-03.jpg" alt="Mischtechnik – Arbeit 03" loading="lazy" data-lb="assets/mischtechnik/arbeit-03.jpg" />
+            <figcaption>Collage, Tusche</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 3) SKULPTUREN -->
+    <section id="skulpturen">
+      <h2>Skulpturen</h2>
+      <p class="lede">Skulpturale Arbeiten – Gesamtansichten und Details; Installationsfotos aus Ausstellungen.</p>
+      <div class="grid">
+        <article class="card span-6">
+          <figure class="thumb">
+            <img src="assets/skulpturen/arbeit-01.jpg" alt="Skulptur – Arbeit 01" loading="lazy" data-lb="assets/skulpturen/arbeit-01.jpg" />
+            <figcaption>Bronze, 45×30×25 cm, Jahr</figcaption>
+          </figure>
+        </article>
+        <article class="card span-6">
+          <figure class="thumb">
+            <img src="assets/skulpturen/arbeit-02.jpg" alt="Skulptur – Arbeit 02" loading="lazy" data-lb="assets/skulpturen/arbeit-02.jpg" />
+            <figcaption>Installationsansicht, Galerie, Jahr</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 4) VITA -->
+    <section id="cv">
+      <h2>Vita</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="timeline" aria-label="Lebenslauf" style="display:grid;gap:12px">
+            <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px">
+              <time style="color:var(--muted)">2025</time>
+              <div>Einzelausstellung „Titel“, Ort</div>
+            </div>
+            <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px">
+              <time style="color:var(--muted)">2023</time>
+              <div>Master of Fine Arts, Institution</div>
+            </div>
+            <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px">
+              <time style="color:var(--muted)">2018</time>
+              <div>Gruppenausstellung „Titel“, Ort</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== KONTAKT -->
+    <section id="contact">
+      <h2>Kontakt</h2>
+      <div class="grid">
+        <article class="card span-6">
+          <p>E‑Mail: <a id="emailLink" href="mailto:studio@example.com">studio@example.com</a><br>
+          Social: <a href="#">Instagram</a> · <a href="#">Mastodon</a> · <a href="impressum.html">Impressum &amp; Datenschutzerklärung</a></p>
+        </article>
+        <article class="card span-6">
+          <p class="lede">Für Presseanfragen steht ein Press‑Kit bereit. Schreiben Sie uns gern.</p>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> <span id="nameFooter">Sylvia Barbolini</span></div>
+    <div class="container">© <span id="year"></span> <span id="nameFooter">Künstler:IN</span></div>
   </footer>
 
+  <!-- ===== Lightbox (barrierearm) -->
+  <dialog class="lightbox" id="lightbox" aria-hidden="true" aria-label="Bildansicht">
+    <img class="lb-img" alt="" id="lbImg">
+    <div class="lb-ui">
+      <button class="lb-btn" id="lbClose" aria-label="Schließen (Esc)">Schließen</button>
+    </div>
+  </dialog>
+
   <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
+    // Jahr im Footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox Logik
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+
+    function openLb(src, alt){ lbImg.src = src; lbImg.alt = alt||''; lb.setAttribute('aria-hidden','false'); if(lb.showModal) lb.showModal(); }
+    function closeLb(){ lb.setAttribute('aria-hidden','true'); if(lb.close) lb.close(); }
+
+    document.addEventListener('click', (e)=>{
+      const t = e.target.closest('[data-lb]');
+      if(t){ e.preventDefault(); openLb(t.dataset.lb, t.alt); }
+    });
+    lbClose.addEventListener('click', closeLb);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLb(); });
+    lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLb(); });
   </script>
 </body>
 </html>
