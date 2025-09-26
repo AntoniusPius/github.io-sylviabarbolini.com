@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Künstler:IN – Offizielle Website</title>
+  <meta name="description" content="Offizielle Website – Werkgruppen, Bilder, Texte und Lebenslauf" />
+  <meta name="robots" content="index,follow" />
+  <link rel="preload" as="image" href="assets/hero.jpg" />
+  <meta property="og:title" content="Künstler:IN – Offizielle Website" />
+  <meta property="og:description" content="Werkgruppen, Bilder, Texte, Ausstellungen und Vita." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://example.com/assets/og.jpg" />
+  <meta name="theme-color" content="#0b1020" />
+  <style>
+    /* Styles wie zuvor */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Hauptnavigation">
+      <div class="brand"><span class="dot"></span><span id="siteTitle">Künstler:IN</span></div>
+      <nav class="links">
+        <a href="#mischtechnik">Mischtechnik</a>
+        <a href="#malerei">Malerei</a>
+        <a href="#skulpturen">Skulpturen</a>
+        <a href="#cv">Vita</a>
+        <a href="#contact" class="btn">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="content">
+    <!-- Inhalt der Seite bleibt bestehen, Sektionen können noch angepasst werden -->
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> <span id="nameFooter">Künstler:IN</span></div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
