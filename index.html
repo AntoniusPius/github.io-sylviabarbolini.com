@@ -7,7 +7,8 @@
   <meta name="description" content="Offizielle Website – Malerei, Mischtechnik, Skulpturen und Vita" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b1020" />
-  <link rel="preload" as="image" href="assets/Karrner - Sylvia Barbolini.jpg" />
+  <!-- Wichtig: Preload-Pfad ohne assets/, Leerzeichen URL-kodiert -->
+  <link rel="preload" as="image" href="Karrner%20-%20Sylvia%20Barbolini.jpg" />
   <style>
     /* ===== Design-System */
     :root{--bg:#0a0d17;--panel:#0f1323;--soft:#141a33;--text:#e8eaf2;--muted:#a5acc2;--brand:#9ad7ff;--accent:#ffd68a;--radius:20px;--space:clamp(12px,1.5vw,18px)}
@@ -25,7 +26,7 @@
     .links{display:flex;gap:14px;flex-wrap:wrap}
     .btn{display:inline-block;padding:.55rem .9rem;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#0b0f1c;font-weight:800;border:0}
     /* ===== Hero */
-    .hero{padding:64px 0 24px}
+    .hero{padding:0 0 24px}
     .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
     @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
     .hero h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:.3rem 0}
@@ -49,32 +50,20 @@
     .lb-img{max-width:92vw;max-height:90vh;border-radius:12px}
     .lb-ui{position:fixed;left:0;right:0;bottom:16px;display:flex;gap:10px;justify-content:center}
     .lb-btn{background:#fff;color:#000;border:0;border-radius:999px;padding:.5rem .9rem;font-weight:700}
-/* === Großes Hero-Bild, Bildschirmfüllend === */
-.hero-image {
-  position: relative;
-  width: 100%;
-  height: 100vh;            /* ganze Höhe des Browserfensters */
-  margin: 0;
-  overflow: hidden;         /* überschüssiger Teil abgeschnitten */
-}
 
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* skaliert, füllt Breite & Höhe, beschneidet */
-  object-position: center;  /* zentriert auf die Bildmitte */
-  display: block;
-}
-    /* === Vollbild Hero-Hintergrund === */
-.hero-background {
-  width: 100%;
-  height: 100vh;            /* gesamte Bildschirmhöhe */
-  background-image: url("assets/Karrner%20-%20Sylvia%20Barbolini.jpg");
-  background-size: cover;   /* Bild füllt die Fläche */
-  background-position: center center; /* Mitte im Fokus */
-  background-repeat: no-repeat;
-  margin: 0;
-}
+    /* === Großes Hero-Bild (alte Variante, belassen für evtl. spätere Nutzung) === */
+    .hero-image{position:relative;width:100%;height:100vh;margin:0;overflow:hidden}
+    .hero-image img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+
+    /* === Vollbild Hero-Hintergrund (aktuelle Variante) === */
+    .hero-background{
+      /* Full-bleed unabhängig vom .container */
+      position:relative;
+      left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; /* aus dem Container "ausbrechen" */
+      width:100vw; height:100vh; margin-top:0; margin-bottom:0;
+      background-image:url("Karrner%20-%20Sylvia%20Barbolini.jpg"); /* Bild liegt neben index.html */
+      background-size:cover; background-position:center center; background-repeat:no-repeat;
+    }
   </style>
 </head>
 <body>
@@ -94,19 +83,18 @@
   <main class="container" id="content">
     <!-- ===== HERO -->
     <section class="hero" id="home">
-      <div class="hero-grid">
+      <!-- Vollbreites Hintergrund-Bild als Hauptwerk -->
+      <figure class="hero-background"></figure>
+
+      <!-- Optionaler Einleitungstext unter dem Hero -->
+      <div class="hero-grid" style="margin-top:20px">
         <div>
           <span class="tag">Offizielle Website</span>
           <h1 id="artistName">Sylvia Barbolini</h1>
-          <p class="lede">Sylvia Barbolini wurde 1986 in Bozen/Südtirol geboren und studierte Malerei an der "Accademia di Belle Art" in Venedig sowie an der "Facultad de Bellas Artes Alonso Cano" in Granada.
-
-Seit 2012 lebt und arbeitet sie in Rottweil/Baden-Württemberg und Südtirol.</p>
+          <p class="lede">Sylvia Barbolini wurde 1986 in Bozen/Südtirol geboren und studierte Malerei an der „Accademia di Belle Arti“ in Venedig sowie an der „Facultad de Bellas Artes Alonso Cano“ in Granada. Seit 2012 lebt und arbeitet sie in Rottweil/Baden‑Württemberg und Südtirol.</p>
         </div>
-</div>
-  <figure class="hero-background"></figure>
-</section>
-
-</section>
+      </div>
+    </section>
 
     <!-- ===== 1) MALEREI -->
     <section id="malerei">
@@ -163,7 +151,8 @@ Seit 2012 lebt und arbeitet sie in Rottweil/Baden-Württemberg und Südtirol.</p
       <div class="grid">
         <article class="card span-6">
           <figure class="thumb">
-            <img src="assets/Marea, Detail - Sylvia Barbolini.jpg" alt="Skulptur – Arbeit 01" loading="lazy" data-lb="assets/skulpturen/arbeit-01.jpg" />
+            <!-- Pfad vereinheitlicht: wenn Datei im Root liegt, bitte anpassen zu src="Marea,%20Detail%20-%20Sylvia%20Barbolini.jpg" -->
+            <img src="assets/skulpturen/arbeit-01.jpg" alt="Skulptur – Arbeit 01" loading="lazy" data-lb="assets/skulpturen/arbeit-01.jpg" />
             <figcaption>Bronze, 45×30×25 cm, Jahr</figcaption>
           </figure>
         </article>
@@ -184,9 +173,7 @@ Seit 2012 lebt und arbeitet sie in Rottweil/Baden-Württemberg und Südtirol.</p
           <div class="timeline" aria-label="Lebenslauf" style="display:grid;gap:12px">
             <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px">
               <time style="color:var(--muted)">2025</time>
-              <div>Sylvia Barbolini wurde 1986 in Bozen/Südtirol geboren und studierte Malerei an der "Accademia di Belle Art" in Venedig sowie an der "Facultad de Bellas Artes Alonso Cano" in Granada.
-
-Seit 2012 lebt und arbeitet sie in Rottweil/Baden-Württemberg und Südtirol.</div>
+              <div>Sylvia Barbolini wurde 1986 in Bozen/Südtirol geboren und studierte Malerei an der „Accademia di Belle Arti“ in Venedig sowie an der „Facultad de Bellas Artes Alonso Cano“ in Granada. Seit 2012 lebt und arbeitet sie in Rottweil/Baden‑Württemberg und Südtirol.</div>
             </div>
             <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px">
               <time style="color:var(--muted)">2015</time>
@@ -194,9 +181,7 @@ Seit 2012 lebt und arbeitet sie in Rottweil/Baden-Württemberg und Südtirol.</d
             </div>
             <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px">
               <time style="color:var(--muted)"></time>
-              <div>Das Spektrum ihrer Arbeiten reicht von malerischen Ausdrucksformen über Collage, Monotypie und Siebdruck bis hin zu keramischen Skulpturen, feinen Metallgüssen und kleinen Schnitzereien.
-
-Ihre Werke sind Teil öffentlicher und privater Sammlungen.</div>
+              <div>Das Spektrum ihrer Arbeiten reicht von malerischen Ausdrucksformen über Collage, Monotypie und Siebdruck bis hin zu keramischen Skulpturen, feinen Metallgüssen und kleinen Schnitzereien. Ihre Werke sind Teil öffentlicher und privater Sammlungen.</div>
             </div>
           </div>
         </article>
@@ -208,7 +193,7 @@ Ihre Werke sind Teil öffentlicher und privater Sammlungen.</div>
       <h2>Kontakt</h2>
       <div class="grid">
         <article class="card span-6">
-          <p>E‑Mail: <a id="emailLink" href="mailto:studio@example.com">mail@sylviabarbolini.com</a><br>
+          <p>E‑Mail: <a id="emailLink" href="mailto:mail@sylviabarbolini.com">mail@sylviabarbolini.com</a><br>
           Social: <a href="#">Instagram</a> · <a href="#">Mastodon</a> · <a href="impressum.html">Impressum &amp; Datenschutzerklärung</a></p>
         </article>
         <article class="card span-6">
