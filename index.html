@@ -49,6 +49,22 @@
     .lb-img{max-width:92vw;max-height:90vh;border-radius:12px}
     .lb-ui{position:fixed;left:0;right:0;bottom:16px;display:flex;gap:10px;justify-content:center}
     .lb-btn{background:#fff;color:#000;border:0;border-radius:999px;padding:.5rem .9rem;font-weight:700}
+/* === Hero-Bild großformatig, zugeschnitten === */
+.hero-image {
+  position: relative;
+  width: 100%;
+  height: 80vh;             /* nutzt 80% der Bildschirmhöhe */
+  overflow: hidden;
+  margin: 0;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* Bild füllt den Bereich, Überschüsse abgeschnitten */
+  object-position: center;  /* Fokus auf die Bildmitte */
+  display: block;
+}
   </style>
 </head>
 <body>
@@ -76,11 +92,12 @@
 
 Seit 2012 lebt und arbeitet sie in Rottweil/Baden-Württemberg und Südtirol.</p>
         </div>
-        <figure>
-          <img src="assets/Karrner - Sylvia Barbolini.jpg" alt="Karrner Aluminiumpapier auf Keramik" loading="eager" />
-        </figure>
-      </div>
-    </section>
+  <figure class="hero-image">
+    <img src="assets/Karrner - Sylvia Barbolini.jpg" 
+         alt="Karrner Aluminiumpapier auf Keramik" 
+         loading="eager">
+  </figure>
+</section>
 
     <!-- ===== 1) MALEREI -->
     <section id="malerei">
