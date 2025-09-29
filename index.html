@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sylvia Barbolini – Offizielle Website</title>
-  <meta name="description" content="Offizielle Website – Skulpturen, Mischtechnik, Vita" />
+  <meta name="description" content="Offizielle Website – Plastik, Malerei, Mischtechnik, Vita" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b1020" />
-  <link rel="preload" as="image" href="assets/Karrner%20-%20Sylvia%20Barbolini.jpg" />
+  <link rel="preload" as="image" href="assets/Karrner%2C%20close%20-%20Sylvia%20Barbolini.jpg" />
   <style>
     :root{--bg:#0a0d17;--panel:#0f1323;--soft:#141a33;--text:#e8eaf2;--muted:#a5acc2;--brand:#9ad7ff;--accent:#ffd68a;--radius:20px;--space:clamp(12px,1.5vw,18px)}
     *{box-sizing:border-box}
@@ -16,40 +16,55 @@
     a:hover{text-decoration:underline}
     img{max-width:100%;height:auto;display:block}
     .container{max-width:1120px;margin:0 auto;padding:0 16px}
+
     header{position:sticky;top:0;z-index:40;background:rgba(10,13,23,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
     .nav{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
     .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--accent))}
     .links{display:flex;gap:14px;flex-wrap:wrap}
     .btn{display:inline-block;padding:.55rem .9rem;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#0b0f1c;font-weight:800;border:0}
+
     .hero{padding:0 0 24px}
     .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
     @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
     .hero h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:.3rem 0}
     .tag{display:inline-block;padding:.2rem .55rem;border:1px solid rgba(255,255,255,.14);border-radius:999px;font-size:.8rem;color:var(--muted)}
-    .hero figure{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,var(--soft),#0b1020)}
+
     section{padding:36px 0}
     h2{font-size:1.7rem;margin:0 0 14px}
     .lede{color:var(--muted);max-width:70ch}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .card{grid-column:span 12;background:linear-gradient(180deg,var(--panel),#0b0f1e);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:var(--space);box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    @media(min-width:720px){.span-6{grid-column:span 6}.span-4{grid-column:span 4}}
-    .thumb{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
-    .thumb figcaption{position:absolute;left:0;bottom:0;right:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.6));padding:10px 12px;font-weight:600}
+
+    .card{background:linear-gradient(180deg,var(--panel),#0b0f1e);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:var(--space);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+
     footer{border-top:1px solid rgba(255,255,255,.08);margin-top:24px;padding:28px 0;color:var(--muted);font-size:.95rem}
+
     dialog.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;border:0;padding:16px}
     dialog.lightbox[open]{display:flex;align-items:center;justify-content:center}
     .lb-img{max-width:92vw;max-height:90vh;border-radius:12px}
     .lb-ui{position:fixed;left:0;right:0;bottom:16px;display:flex;gap:10px;justify-content:center}
     .lb-btn{background:#fff;color:#000;border:0;border-radius:999px;padding:.5rem .9rem;font-weight:700}
 
+    /* Hero full-bleed */
     .hero-background{
-      position:relative;
-      left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;
+      position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw;
       width:100vw; height:100vh; margin-top:0; margin-bottom:0;
-      background-image:url("assets/Karrner%20-%20Sylvia%20Barbolini.jpg");
       background-size:cover; background-position:center center; background-repeat:no-repeat;
     }
+
+    /* Galerie-Komponente */
+    .gallery{display:grid;gap:12px}
+    .gallery-main{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,var(--soft),#0b1020)}
+    .gallery-main figure{margin:0}
+    .gallery-main img{width:100%;max-height:72vh;object-fit:contain;background:#05070f}
+    .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);border:0;border-radius:999px;padding:.6rem .8rem;font-weight:800;background:rgba(255,255,255,.9);color:#0b0f1e;cursor:pointer}
+    .gallery-prev{left:10px}
+    .gallery-next{right:10px}
+    .gallery-thumbs{display:flex;gap:10px;overflow:auto;padding:6px}
+    .gallery-thumbs button{border:0;background:transparent;padding:0;cursor:pointer;border-radius:10px;outline:none}
+    .gallery-thumbs img{height:76px;aspect-ratio:4/3;object-fit:cover;border-radius:10px;border:2px solid transparent;display:block}
+    .gallery-thumbs .active img{border-color:var(--accent)}
+    @media (max-width:720px){.gallery-main img{max-height:60vh}.gallery-thumbs img{height:64px}}
+
   </style>
 </head>
 <body>
@@ -57,7 +72,8 @@
     <div class="container nav" role="navigation" aria-label="Hauptnavigation">
       <div class="brand"><span class="dot"></span><span id="siteTitle">Sylvia Barbolini</span></div>
       <nav class="links">
-        <a href="#skulpturen">Skulpturen</a>
+        <a href="#plastik">Plastik</a>
+        <a href="#malerei">Malerei</a>
         <a href="#mischtechnik">Mischtechnik</a>
         <a href="#cv">Vita</a>
         <a href="#contact" class="btn">Kontakt</a>
@@ -66,8 +82,9 @@
   </header>
 
   <main class="container" id="content">
+    <!-- Hero -->
     <section class="hero" id="home">
-      <figure class="hero-background"></figure>
+      <figure class="hero-background" style="background-image:url('assets/Karrner%2C%20close%20-%20Sylvia%20Barbolini.jpg')"></figure>
       <div class="hero-grid" style="margin-top:20px">
         <div>
           <span class="tag">Offizielle Website</span>
@@ -77,114 +94,96 @@
       </div>
     </section>
 
-    <!-- ===== SKULPTUREN (alle Bilder) -->
-    <section id="skulpturen">
-      <h2>Skulpturen</h2>
-      <p class="lede">Skulpturale Arbeiten – Gesamtansichten und Details.</p>
-      <div class="grid">
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Karrner%20-%20Sylvia%20Barbolini.jpg" alt="Karrner – Sylvia Barbolini" loading="lazy" data-lb="assets/Karrner%20-%20Sylvia%20Barbolini.jpg" />
-            <figcaption>„Karrner“</figcaption>
+    <!-- Plastik (ehem. Skulpturen) mit Galerie -->
+    <section id="plastik">
+      <h2>Plastik</h2>
+      <p class="lede">Plastische Arbeiten – Gesamtansichten und Details.</p>
+
+      <div class="gallery" data-gallery="plastik">
+        <div class="gallery-main">
+          <button class="gallery-arrow gallery-prev" aria-label="Vorheriges Bild">&#10094;</button>
+          <figure>
+            <img alt="" data-lb="" />
+            <figcaption class="lede" style="padding:8px 12px"></figcaption>
           </figure>
-        </article>
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Marea%20-%20Sylvia%20Barbolini.jpg" alt="Marea – Sylvia Barbolini" loading="lazy" data-lb="assets/Marea%20-%20Sylvia%20Barbolini.jpg" />
-            <figcaption>„Marea“</figcaption>
-          </figure>
-        </article>
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Marea%2C%20Detail%2C%20Sylvia%20Barbolini.jpg" alt="Marea, Detail – Sylvia Barbolini" loading="lazy" data-lb="assets/Marea%2C%20Detail%2C%20Sylvia%20Barbolini.jpg" />
-            <figcaption>„Marea, Detail“</figcaption>
-          </figure>
-        </article>
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Deflation%20-%20Sylvia%20Barbolini.jpg" alt="Deflation – Sylvia Barbolini" loading="lazy" data-lb="assets/Deflation%20-%20Sylvia%20Barbolini.jpg" />
-            <figcaption>„Deflation“</figcaption>
-          </figure>
-        </article>
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Eis%20am%20Stil%20-%20Sylvia%20Barbolini.jpg" alt="Eis am Stil – Sylvia Barbolini" loading="lazy" data-lb="assets/Eis%20am%20Stil%20-%20Sylvia%20Barbolini.jpg" />
-            <figcaption>„Eis am Stil“</figcaption>
-          </figure>
-        </article>
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Froschkönig%20-%20Sylvia%20Barbolini.jpg" alt="Froschkönig – Sylvia Barbolini" loading="lazy" data-lb="assets/Froschkönig%20-%20Sylvia%20Barbolini.jpg" />
-            <figcaption>„Froschkönig“</figcaption>
-          </figure>
-        </article>
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Entrepreneur%20-%20Sylvia%20Barbolini.jpg" alt="Entrepreneur – Sylvia Barbolini" loading="lazy" data-lb="assets/Entrepreneur%20-%20Sylvia%20Barbolini.jpg" />
-            <figcaption>„Entrepreneur“</figcaption>
-          </figure>
-        </article>
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Lollipop%20-%20Sylvia%20Barbolini.jpg" alt="Lollipop – Sylvia Barbolini" loading="lazy" data-lb="assets/Lollipop%20-%20Sylvia%20Barbolini.jpg" />
-            <figcaption>„Lollipop“</figcaption>
-          </figure>
-        </article>
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Market%20animals%20-%20Sylvia%20Barbolini.jpg" alt="Market animals – Sylvia Barbolini" loading="lazy" data-lb="assets/Market%20animals%20-%20Sylvia%20Barbolini.jpg" />
-            <figcaption>„Market animals“</figcaption>
-          </figure>
-        </article>
-        <article class="card span-6">
-          <figure class="thumb">
-            <img src="assets/Stoffwechsel%20-%20Sylvia%20Barbolini.JPG" alt="Stoffwechsel – Sylvia Barbolini" loading="lazy" data-lb="assets/Stoffwechsel%20-%20Sylvia%20Barbolini.JPG" />
-            <figcaption>„Stoffwechsel“</figcaption>
-          </figure>
-        </article>
+          <button class="gallery-arrow gallery-next" aria-label="Nächstes Bild">&#10095;</button>
+        </div>
+        <div class="gallery-thumbs">
+          <button class="thumb" data-src="assets/Karrner%20-%20Sylvia%20Barbolini.jpg" data-alt="Karrner" data-caption="„Karrner“"><img src="assets/Karrner%20-%20Sylvia%20Barbolini.jpg" alt="Karrner"></button>
+          <button class="thumb" data-src="assets/Marea%20-%20Sylvia%20Barbolini.jpg" data-alt="Marea" data-caption="„Marea“"><img src="assets/Marea%20-%20Sylvia%20Barbolini.jpg" alt="Marea"></button>
+          <button class="thumb" data-src="assets/Marea%2C%20Detail%2C%20Sylvia%20Barbolini.jpg" data-alt="Marea, Detail" data-caption="„Marea, Detail“"><img src="assets/Marea%2C%20Detail%2C%20Sylvia%20Barbolini.jpg" alt="Marea, Detail"></button>
+          <button class="thumb" data-src="assets/Deflation%20-%20Sylvia%20Barbolini.jpg" data-alt="Deflation" data-caption="„Deflation“"><img src="assets/Deflation%20-%20Sylvia%20Barbolini.jpg" alt="Deflation"></button>
+          <button class="thumb" data-src="assets/Eis%20am%20Stil%20-%20Sylvia%20Barbolini.jpg" data-alt="Eis am Stil" data-caption="„Eis am Stil“"><img src="assets/Eis%20am%20Stil%20-%20Sylvia%20Barbolini.jpg" alt="Eis am Stil"></button>
+          <button class="thumb" data-src="assets/Froschk%C3%B6nig%20-%20Sylvia%20Barbolini.jpg" data-alt="Froschkönig" data-caption="„Froschkönig“"><img src="assets/Froschk%C3%B6nig%20-%20Sylvia%20Barbolini.jpg" alt="Froschkönig"></button>
+          <button class="thumb" data-src="assets/Entrepreneur%20-%20Sylvia%20Barbolini.jpg" data-alt="Entrepreneur" data-caption="„Entrepreneur“"><img src="assets/Entrepreneur%20-%20Sylvia%20Barbolini.jpg" alt="Entrepreneur"></button>
+          <button class="thumb" data-src="assets/Lollipop%20-%20Sylvia%20Barbolini.jpg" data-alt="Lollipop" data-caption="„Lollipop“"><img src="assets/Lollipop%20-%20Sylvia%20Barbolini.jpg" alt="Lollipop"></button>
+          <button class="thumb" data-src="assets/Market%20animals%20-%20Sylvia%20Barbolini.jpg" data-alt="Market animals" data-caption="„Market animals“"><img src="assets/Market%20animals%20-%20Sylvia%20Barbolini.jpg" alt="Market animals"></button>
+          <button class="thumb" data-src="assets/Stoffwechsel%20-%20Sylvia%20Barbolini.JPG" data-alt="Stoffwechsel" data-caption="„Stoffwechsel“"><img src="assets/Stoffwechsel%20-%20Sylvia%20Barbolini.JPG" alt="Stoffwechsel"></button>
+        </div>
       </div>
     </section>
 
-    <!-- ===== MISCHTECHNIK (leer, später) -->
+    <!-- Malerei mit Galerie -->
+    <section id="malerei">
+      <h2>Malerei</h2>
+      <p class="lede">Ausgewählte Werke der Malerei.</p>
+
+      <div class="gallery" data-gallery="malerei">
+        <div class="gallery-main">
+          <button class="gallery-arrow gallery-prev" aria-label="Vorheriges Bild">&#10094;</button>
+          <figure>
+            <img alt="" data-lb="" />
+            <figcaption class="lede" style="padding:8px 12px"></figcaption>
+          </figure>
+          <button class="gallery-arrow gallery-next" aria-label="Nächstes Bild">&#10095;</button>
+        </div>
+        <div class="gallery-thumbs">
+          <button class="thumb" data-src="assets/Sylvia%20Barbolini%20-%20Solisten.jpg" data-alt="Solisten" data-caption="„Solisten“"><img src="assets/Sylvia%20Barbolini%20-%20Solisten.jpg" alt="Solisten"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mischtechnik mit Galerie -->
     <section id="mischtechnik">
       <h2>Mischtechnik</h2>
-      <p class="lede">Arbeiten folgen.</p>
-    </section>
+      <p class="lede">Serie Mischtechnik auf Papier.</p>
 
-    <!-- ===== VITA -->
-    <section id="cv">
-      <h2>Vita</h2>
-      <div class="grid">
-        <article class="card">
-          <div class="timeline" aria-label="Lebenslauf" style="display:grid;gap:12px">
-            <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px">
-              <time style="color:var(--muted)">2025</time>
-              <div>Sylvia Barbolini wurde 1986 in Bozen/Südtirol geboren und studierte Malerei an der „Accademia di Belle Arti“ in Venedig sowie an der „Facultad de Bellas Artes Alonso Cano“ in Granada. Seit 2012 lebt und arbeitet sie in Rottweil/Baden‑Württemberg und Südtirol.</div>
-            </div>
-            <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px">
-              <time style="color:var(--muted)">2015</time>
-              <div>2015 wird ihr im Rahmen des 34. Österreichischen Grafikwettbewerbs der Preis des Landes Vorarlberg zuerkannt.</div>
-            </div>
-            <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px">
-              <time style="color:var(--muted)"></time>
-              <div>Das Spektrum ihrer Arbeiten reicht von Malerei über Collage, Monotypie und Siebdruck bis hin zu keramischen Skulpturen, feinen Metallgüssen und kleinen Schnitzereien. Werke in öffentlichen und privaten Sammlungen.</div>
-            </div>
-          </div>
-        </article>
+      <div class="gallery" data-gallery="mischtechnik">
+        <div class="gallery-main">
+          <button class="gallery-arrow gallery-prev" aria-label="Vorheriges Bild">&#10094;</button>
+          <figure>
+            <img alt="" data-lb="" />
+            <figcaption class="lede" style="padding:8px 12px"></figcaption>
+          </figure>
+          <button class="gallery-arrow gallery-next" aria-label="Nächstes Bild">&#10095;</button>
+        </div>
+        <div class="gallery-thumbs">
+          <button class="thumb" data-src="assets/Sylvia%20Barbolini%20-%20Betriebsausflug.jpg" data-alt="Betriebsausflug" data-caption="„Betriebsausflug“"><img src="assets/Sylvia%20Barbolini%20-%20Betriebsausflug.jpg" alt="Betriebsausflug"></button>
+          <button class="thumb" data-src="assets/Sylvia%20Barbolini%20-%20Die%20Etikette.jpg" data-alt="Die Etikette" data-caption="„Die Etikette“"><img src="assets/Sylvia%20Barbolini%20-%20Die%20Etikette.jpg" alt="Die Etikette"></button>
+          <button class="thumb" data-src="assets/Sylvia%20Barbolini%20-%20Elitepartner.jpg" data-alt="Elitepartner" data-caption="„Elitepartner“"><img src="assets/Sylvia%20Barbolini%20-%20Elitepartner.jpg" alt="Elitepartner"></button>
+          <button class="thumb" data-src="assets/Sylvia%20Barbolini%20-%20Trojanisches%20Pferd.jpg" data-alt="Trojanisches Pferd" data-caption="„Trojanisches Pferd“"><img src="assets/Sylvia%20Barbolini%20-%20Trojanisches%20Pferd.jpg" alt="Trojanisches Pferd"></button>
+          <button class="thumb" data-src="assets/Sylvia%20Barbolini%20-%20Evolution.jpg" data-alt="Evolution" data-caption="„Evolution“"><img src="assets/Sylvia%20Barbolini%20-%20Evolution.jpg" alt="Evolution"></button>
+        </div>
       </div>
     </section>
 
-    <!-- ===== KONTAKT -->
+    <!-- Vita -->
+    <section id="cv">
+      <h2>Vita</h2>
+      <div class="card">
+        <div class="timeline" aria-label="Lebenslauf" style="display:grid;gap:12px">
+          <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px"><time style="color:var(--muted)">2025</time><div>Sylvia Barbolini wurde 1986 in Bozen/Südtirol geboren und studierte Malerei an der „Accademia di Belle Arti“ in Venedig sowie an der „Facultad de Bellas Artes Alonso Cano“ in Granada. Seit 2012 lebt und arbeitet sie in Rottweil/Baden‑Württemberg und Südtirol.</div></div>
+          <div class="entry" style="display:grid;grid-template-columns:140px 1fr;gap:10px"><time style="color:var(--muted)">2015</time><div>2015 wird ihr im Rahmen des 34. Österreichischen Grafikwettbewerbs der Preis des Landes Vorarlberg zuerkannt.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
     <section id="contact">
       <h2>Kontakt</h2>
-      <div class="grid">
-        <article class="card span-6">
-          <p>E‑Mail: <a id="emailLink" href="mailto:mail@sylviabarbolini.com">mail@sylviabarbolini.com</a><br>
-          Social: <a href="#">Instagram</a> · <a href="#">Mastodon</a> · <a href="impressum.html">Impressum &amp; Datenschutzerklärung</a></p>
-        </article>
-        <article class="card span-6">
-          <p class="lede">Für Presseanfragen steht ein Press‑Kit bereit. Schreiben Sie uns gern.</p>
-        </article>
+      <div class="card">
+        <p>E‑Mail: <a id="emailLink" href="mailto:mail@sylviabarbolini.com">mail@sylviabarbolini.com</a><br>
+        Social: <a href="#">Instagram</a> · <a href="#">Mastodon</a> · <a href="impressum.html">Impressum &amp; Datenschutzerklärung</a></p>
       </div>
     </section>
   </main>
@@ -193,33 +192,68 @@
     <div class="container">© <span id="year"></span> <span id="nameFooter">Sylvia Barbolini</span></div>
   </footer>
 
+  <!-- Lightbox -->
   <dialog class="lightbox" id="lightbox" aria-hidden="true" aria-label="Bildansicht">
     <img class="lb-img" alt="" id="lbImg">
-    <div class="lb-ui">
-      <button class="lb-btn" id="lbClose" aria-label="Schließen (Esc)">Schließen</button>
-    </div>
+    <div class="lb-ui"><button class="lb-btn" id="lbClose" aria-label="Schließen (Esc)">Schließen</button></div>
   </dialog>
 
   <script>
+    // Footer-Jahr
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
     const lbClose = document.getElementById('lbClose');
-
     function openLb(src, alt){ lbImg.src = src; lbImg.alt = alt||''; lb.setAttribute('aria-hidden','false'); if(lb.showModal) lb.showModal(); }
     function closeLb(){ lb.setAttribute('aria-hidden','true'); if(lb.close) lb.close(); }
+    document.addEventListener('click', (e)=>{ const t = e.target.closest('[data-lb], .gallery-main img'); if(t){ e.preventDefault(); const src = t.dataset.lb || t.getAttribute('src'); const alt = t.getAttribute('alt') || ''; if(src) openLb(src, alt); }});
+    lbClose.addEventListener('click', closeLb); document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLb(); }); lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLb(); });
 
-    document.addEventListener('click', (e)=>{
-      const t = e.target.closest('[data-lb]');
-      if(t){ e.preventDefault(); openLb(t.dataset.lb, t.alt); }
+    // Galerie-Logik: für jede .gallery unabhängig
+    function initGallery(root){
+      const mainImg = root.querySelector('.gallery-main img');
+      const caption = root.querySelector('.gallery-main figcaption');
+      const thumbs = Array.from(root.querySelectorAll('.gallery-thumbs .thumb'));
+      const prev = root.querySelector('.gallery-prev');
+      const next = root.querySelector('.gallery-next');
+      let index = 0;
+
+      function show(i){
+        index = (i+thumbs.length)%thumbs.length;
+        const th = thumbs[index];
+        const src = th.dataset.src; const alt = th.dataset.alt||''; const cap = th.dataset.caption||'';
+        mainImg.src = src; mainImg.alt = alt; mainImg.setAttribute('data-lb', src);
+        if(caption) caption.textContent = cap;
+        thumbs.forEach(btn=>btn.classList.remove('active')); th.classList.add('active');
+        // ensure active thumb into view
+        th.scrollIntoView({inline:'nearest', behavior:'smooth', block:'nearest'});
+      }
+
+      thumbs.forEach((btn, i)=>{ btn.addEventListener('click', ()=>show(i)); });
+      if(prev) prev.addEventListener('click', ()=>show(index-1));
+      if(next) next.addEventListener('click', ()=>show(index+1));
+
+      // Tastatursteuerung – zuletzt fokussierte Galerie
+      root.addEventListener('mouseenter', ()=>root.dataset.active='1');
+      root.addEventListener('mouseleave', ()=>delete root.dataset.active);
+
+      // Startbild
+      show(0);
+    }
+
+    document.querySelectorAll('.gallery').forEach(initGallery);
+
+    // Globale Pfeiltasten für die zuletzt aktive Galerie
+    document.addEventListener('keydown', (e)=>{
+      if(e.key!=='ArrowLeft' && e.key!=='ArrowRight') return;
+      const active = Array.from(document.querySelectorAll('.gallery')).find(g=>g.dataset.active==='1');
+      if(!active) return;
+      const prev = active.querySelector('.gallery-prev');
+      const next = active.querySelector('.gallery-next');
+      if(e.key==='ArrowLeft') prev?.click(); else next?.click();
     });
-    lbClose.addEventListener('click', closeLb);
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLb(); });
-    lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLb(); });
-  </script>
-</body>
-</html>
-    .addEventListener('click', (e)=>{ if(e.target===lb) closeLb(); });
   </script>
 </body>
 </html>
